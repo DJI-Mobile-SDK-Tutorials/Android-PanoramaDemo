@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Application -->
+    <string name="app_name">PanoDemo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <!-- UI -->
+    <string name="dji_sdk_activate_error">DJI SDK activate error</string>
+    <string name="stitching">Stitching</string>
+    <string name="one_key_panorama">One key Panorama</string>
+    <string name="commonMessageString">Common message</string>
+    <string name="groundstation_take_control">Be cautious!GroundStation take control now</string>
+    <string name="init_gimabal_yaw">Initialize gimbal....</string>
+    <string name="test">Test</string>
+    <string name="capturing_image">Capturing</string>
+    <string name="capture_image_complete">Capture complete</string>
+    <string name="downloading">Downloading</string>
+    <string name="battery">Battery</string>
+    <string name="pressAgainExitString">Press again to exit</string>
+    <string name="unsupported_drone">Unsupported drone,use Inspire1 or Phantom 3 pro try again</string>
+    <string name="video_preview_disabled_during_stitching">Warning!video preview disabled during stitching</string>
+
+</resources>
