@@ -78,7 +78,7 @@ public class MainActivity extends Activity implements OnClickListener {
     private boolean isCheckCaptureImageFailure = false;  //check dji camera capture failure count
     private boolean isCheckDownloadImageFailure = false;  //check dji download image failure count
     private boolean isDIsableDJIVideoPreviewDuringStitching = true;  //disable dji video preview during stitching to reduce cpu and memory usage
-    private boolean isPhantom3UseJoystick = true;  //true:use joystick;false:use waypoint action.we have two example to rotate phantom yaw and take picture 360 degrees
+    private boolean isPhantom3UseJoystick = false;  //true:use joystick;false:use waypoint action.we have two example to rotate phantom yaw and take picture 360 degrees
     /*********************Config zone*********************/
 	
 	//Load jni library
@@ -236,14 +236,23 @@ public class MainActivity extends Activity implements OnClickListener {
             else if(mDroneType==DJIDroneType.DJIDrone_Phantom3_Professional)
             {
             	//we have two example:joystick and waypoint action
-            	if(isPhantom3UseJoystick==true)
-            	{
-            		handler.sendMessage(handler.obtainMessage(HANDLER_PHANTOM3PROFESSIONAL_CAPTURE_IMAGES,""));
-            	}
-            	else
-            	{
-                    handler.sendMessage(handler.obtainMessage(HANDLER_PHANTOM3PROFESSIONAL_WA_CAPTURE_IMAGES,""));
-            	}
+                DialogInterface.OnClickListener useFlightControlButton = new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        handler.sendMessage(handler.obtainMessage(HANDLER_PHANTOM3PROFESSIONAL_CAPTURE_IMAGES, ""));
+                    }
+                };
+                DialogInterface.OnClickListener useWaypointsButton=new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                    	handler.sendMessage(handler.obtainMessage(HANDLER_PHANTOM3PROFESSIONAL_WA_CAPTURE_IMAGES, ""));
+                    }
+                };
+                new AlertDialog.Builder(MainActivity.this).setTitle("Message").setMessage("Use Flight Control or Waypoints?").setPositiveButton("Flight Control", useFlightControlButton).setNegativeButton("Waypoints", useWaypointsButton).show();
             }
             else
             {
