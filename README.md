@@ -1,3 +1,5 @@
+> Note：This Tutorial and Sample Project is developed based on DJI Android SDK v2.4, an update version for Android SDK v3.1.1 will be published soon.
+
 # Creating a Panorama Application
 
 <!-- toc -->
